@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="JSON">
+            <md-content class="md-padding">
+                <div layout="row">
+                    <div layout="column" flex="40">
+                        <md-input-container class="md-block">
+                            <label>Number of Requests</label>
+                            <input type="number" step="1" ng-model="jsonRequests" />
+                        </md-input-container>
+                        <div layout="row">
+                            <md-button class="md-raised md-primary">Serialize</md-button>
+                            <md-button class="md-raised md-primary">Deserialize</md-button>
+                        </div>
+                    </div>
+                    <div layout="row" flex="60">
+
+                    </div>
+                </div>
+                
+            </md-content>
+        </md-tab>
+        <md-tab label="BSON">
+            <md-content class="md-padding">
+                
+            </md-content>
+        </md-tab>
+        <md-tab label="XML">
+            <md-content class="md-padding">
+                
+            </md-content>
+        </md-tab>
+        <md-tab label="Microsoft Bond">
+            <md-content class="md-padding">
+                
+            </md-content>
+        </md-tab>
+        <md-tab label="Google Protocol Buffer">
+            <md-content class="md-padding">
+                
+            </md-content>
+        </md-tab>
+        <md-tab label="All">
+            <md-content class="md-padding">
+                
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-content>

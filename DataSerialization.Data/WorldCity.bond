@@ -1,0 +1,12 @@
+﻿namespace DataSerialization.Data
+
+struct WorldCity
+{
+	0: string Country;
+	1: string City;
+	2: string AccentCity;
+	3: string Region;
+	4: nullable<int32> Population;
+	5: double Latitude;
+	6: double Longitude;
+}
