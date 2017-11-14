@@ -15,8 +15,7 @@ namespace DataSerialization.Web.Controllers
     {
         private async Task CheckData()
         {
-            if (DataManager.Status != DataManager.LoadStatus.Loaded)
-                await DataManager.LoadData();
+            await DataManager.LoadData();
         }
 
         [HttpGet]
@@ -26,9 +25,9 @@ namespace DataSerialization.Web.Controllers
 
             GenericDataModel model = new GenericDataModel();
             model.TimesRan = times;
-            List<long> runTimes = new List<long>();
+            var runTimes = new List<long>();
 
-            var overallWatch = Stopwatch.StartNew();
+            Stopwatch overallWatch = Stopwatch.StartNew();
             var timeWatch = new Stopwatch();
             for (int i = 0; i < times; i++)
             {

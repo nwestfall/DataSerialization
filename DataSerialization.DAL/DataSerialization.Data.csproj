@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Bond.Core.CSharp" Version="6.0.0" />
+    <PackageReference Include="Bond.Compiler" Version="6.0.0" />
+    <PackageReference Include="Bond.Grpc.CSharp" Version="6.0.0" />
+    <PackageReference Include="protobuf" Version="2.6.1.1" />
+    <PackageReference Include="Grpc.Core" Version="1.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\worldcitiespop.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\worldcitiespop.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="BondManager.cs" />
+  </ItemGroup>
+</Project>

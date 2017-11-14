@@ -27,7 +27,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataSerialization.Data\DataSerialization.Data.csproj" />
+    <ProjectReference Include="..\DataSerialization.DAL\DataSerialization.Data.csproj" />
   </ItemGroup>
-
 </Project>

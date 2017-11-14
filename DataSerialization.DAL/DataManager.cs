@@ -21,7 +21,7 @@ namespace DataSerialization.Data
             Loaded
         }
 
-        private const string _fileLocation = "data/worldcitiespop.txt";
+        private const string WORLD_CITIES_FILE = "data/worldcitiespop.txt";
 
         /// <summary>
         /// Get the <see cref="LoadStatus"/> of the data text file
@@ -37,23 +37,32 @@ namespace DataSerialization.Data
         /// Load the world cities from the text file
         /// </summary>
         /// <returns></returns>
-        public static Task LoadData()
+        public static Task LoadData(IDataSource source  = null)
         {
             return Task.Run(() =>
             {
                 try
                 {
-                    Status = LoadStatus.NotLoaded;
-                    WorldCities.Clear();
-                    if (File.Exists(_fileLocation))
+                    if (Status != LoadStatus.Loaded)
                     {
-                        var lines = File.ReadAllLines(_fileLocation);
+                        Status = LoadStatus.NotLoaded;
+                        WorldCities.Clear();
+                        string[] lines = null;
+                        if(source == null)
+                        {
+                            if (File.Exists(WORLD_CITIES_FILE))
+                                lines = File.ReadAllLines(WORLD_CITIES_FILE);
+                            else
+                                throw new Exception("File does not exists");
+                        }
+                        else
+                            lines = source.LoadData();
                         for (var i = 1; i < lines.Count(); i++)
                             WorldCities.Add(new WorldCityModel(lines[i]));
+                        Status = LoadStatus.Loaded;
                     }
-                    Status = LoadStatus.Loaded;
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     Status = LoadStatus.Error;
                 }

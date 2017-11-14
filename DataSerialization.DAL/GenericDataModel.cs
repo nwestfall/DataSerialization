@@ -7,6 +7,12 @@ namespace DataSerialization.Data
     /// </summary>
     public class GenericDataModel
     {
+        public enum TransformType
+        {
+            Serialize,
+            Deserialize
+        }
+
         /// <summary>
         /// Raw Data
         /// </summary>
@@ -23,5 +29,13 @@ namespace DataSerialization.Data
         /// Avg time
         /// </summary>
         public TimeSpan AvgTime { get; set; }
+        /// <summary>
+        /// Gets or sets the run time.
+        /// </summary>
+        public DateTime RunTime { get; set; }
+        /// <summary>
+        /// Gets or sets the transform.
+        /// </summary>
+        public TransformType Transform { get; set; }
     }
 }
